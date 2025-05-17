@@ -2,16 +2,16 @@
     "101": {
         "name": "tea powder",
         "price": 200.0,
-        "stock": 4000
+        "stock": 3997
     },
     "102": {
         "name": "milk",
         "price": 18.0,
-        "stock": 100
+        "stock": 96
     },
     "103": {
         "name": "sugar",
         "price": 58.0,
-        "stock": "2000kg"
+        "stock": 184
     }
 }
