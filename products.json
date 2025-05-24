@@ -2,7 +2,7 @@
     "101": {
         "name": "tea powder",
         "price": 200.0,
-        "stock": 3980
+        "stock": 3977
     },
     "102": {
         "name": "milk",
@@ -13,5 +13,45 @@
         "name": "sugar",
         "price": 58.0,
         "stock": 180
+    },
+    "104": {
+        "name": "salt",
+        "price": 20.0,
+        "stock": 150
+    },
+    "105": {
+        "name": "rice",
+        "price": 60.0,
+        "stock": 500
+    },
+    "106": {
+        "name": "wheat flour",
+        "price": 45.0,
+        "stock": 350
+    },
+    "107": {
+        "name": "cooking oil",
+        "price": 130.0,
+        "stock": 200
+    },
+    "108": {
+        "name": "toothpaste",
+        "price": 40.0,
+        "stock": 77
+    },
+    "109": {
+        "name": "soap",
+        "price": 25.0,
+        "stock": 296
+    },
+    "110": {
+        "name": "Ghee",
+        "price": "250",
+        "stock": "10"
+    },
+    "789": {
+        "name": "pen",
+        "price": "10",
+        "stock": "10"
     }
 }

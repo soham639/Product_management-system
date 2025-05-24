@@ -9,7 +9,8 @@ def addProduct():
     if os.path.exists("products.json"):
         with open("products.json","r") as f:
           products=json.load(f)
-        products["p_id":input("Product ID:")] = {"name": input("Product Name:"), "price": input("Product Price:"), "stock": input("Product Stock:")}
+        p_id=input("Product ID:")
+        products[p_id] = {"name": input("Product Name:"), "price": input("Product Price:"), "stock": input("Product Stock:")}
         with open("products.json","w") as f:
           json_data=json.dump(products,f,indent=4) 
         print(json_data)
