@@ -48,31 +48,42 @@ def lowStockProductAlert():
    
     
 def sellProduct():
-  
-  
-  print("--------------------------------------")
-  viewProduct()
-  with open("products.json","r") as f:
-            products=json.load(f)
-  items_quantity=int(input("Enter how many types items you want to buy:"))
-  purchased_items = [] # list which stores purchased items
-  for i in range(items_quantity):
-        sp_id=input("Enter Product id:")
-        quantity=int(input("Enter the quantity:"))
+    print("--------------------------------------")
+    viewProduct()
+    
+    with open("products.json", "r") as f:
+        products = json.load(f)
+    
+    items_quantity = int(input("Enter how many types of items you want to buy: "))
+    purchased_items = []  # list which stores purchased items
+    
+    for i in range(items_quantity):
+        sp_id = input("Enter Product ID: ")
+        
         if sp_id in products:
-          products[sp_id]['stock']=int(products[sp_id]['stock'])-quantity
-          with open("products.json", "w") as f:
-            json.dump(products, f, indent=4)
-          totalBill=quantity*int( products[sp_id]['price'])
-          purchased_items.append({"sp_id": sp_id, "quantity": quantity})
+            quantity = int(input("Enter the quantity: "))
+            available_stock = int(products[sp_id]['stock'])
+            
+            if quantity > available_stock:
+                print(f"❌ Not enough stock for {products[sp_id]['name']}. Only {available_stock} items left.\n")
+                continue  # Skip to next product
+            else:
+                products[sp_id]['stock'] = available_stock - quantity
+                with open("products.json", "w") as f:
+                    json.dump(products, f, indent=4)
+                totalBill = quantity * int(products[sp_id]['price'])
+                purchased_items.append({"sp_id": sp_id, "quantity": quantity})
         else:
-          print("Product not found!")
-  continue_shopping=input("Do you want to buy more items(y/n):")
-  if(continue_shopping=="y"):
-    return sellProduct()
-  else:
-    generateRecipt(purchased_items)
-    print("Thanks for shopping! Visit again!")
+            print("❌ Product not found!")
+
+    continue_shopping = input("Do you want to buy more items (y/n): ")
+    if continue_shopping.lower() == "y":
+        return sellProduct()
+    else:
+        if purchased_items:
+            generateRecipt(purchased_items)
+        print("Thanks for shopping! Visit again!")
+
   
   
   
